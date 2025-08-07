@@ -1,1 +1,0 @@
-import{d as a,e as o,D as t}from"./index.Dg3lKJeg.js";import{N as s}from"./NeverExpireDeltaInYears.BAM5Jy2K.js";const n=r=>t.fromISO(r).diff(t.now(),["years","days"]).years>s/10,m=(r,e=!1,i=!0)=>{if(!a.isNonEmptyString(r)||n(r))return e?"Never expires":"Never";const f=o(r,void 0,i);return f.includes("-")?"Expired":e?`Expires in ${f}`:`In ${f}`};export{m as f};

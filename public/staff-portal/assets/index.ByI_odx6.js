@@ -1,1 +1,0 @@
-function i(n){return n!==null&&(n<0||n===32)}const e=t(new RegExp("\\p{P}|\\p{S}","u")),c=t(/\s/);function t(n){return u;function u(r){return r!==null&&r>-1&&n.test(String.fromCharCode(r))}}function a(n){if(n===null||i(n)||c(n))return 1;if(e(n))return 2}export{a as c};

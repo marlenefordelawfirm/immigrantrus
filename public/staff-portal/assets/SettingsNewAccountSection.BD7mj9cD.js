@@ -1,1 +1,0 @@
-import{a as i,j as t,h as s,H as r,l as e}from"./index.Dg3lKJeg.js";import{S as a}from"./SettingsAccountsListEmptyStateCard.C5yZXEkx.js";const c=()=>i(e,{children:[t(r,{title:s._({id:"Kcr9Fr"}),description:s._({id:"D8ATlr"})}),t(a,{})]});export{c as S};

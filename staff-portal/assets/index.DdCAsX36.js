@@ -1,1 +1,0 @@
-function a(r){return r===-2||r===-1||r===32}function p(r,t,u,i){const f=i?i-1:Number.POSITIVE_INFINITY;let I=0;return m;function m(n){return a(n)?(r.enter(u),e(n)):t(n)}function e(n){return a(n)&&I++<f?(r.consume(n),e):(r.exit(u),t(n))}}export{p as f};

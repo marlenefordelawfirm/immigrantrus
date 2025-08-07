@@ -1,6 +1,0 @@
-import{o as p,N as h,T as f,j as n,U as v,V as C,n as A,z as s,B as i,Q as _}from"./index.Dg3lKJeg.js";import{S as F}from"./SaveAndCancelButtons.DdB8J98L.js";import{S as P}from"./SettingsPageContainer.CJeLyK8s.js";import{S as b}from"./SubMenuTopBarContainer.BNGFwgBo.js";import{u as y,S as k}from"./useImapSmtpCaldavConnectionForm.Bc-jV4y-.js";import"./IconDeviceFloppy.CaehffdS.js";import"./Breadcrumb.CQyf5Hn6.js";const x=A.div`
-  align-items: center;
-  display: flex;
-  height: 200px;
-  justify-content: center;
-`,T=()=>{const{i18n:t,_:B}=p(),r=h(),{connectedAccountId:c}=f(),{formMethods:o,handleSave:d,handleSubmit:m,canSave:l,isSubmitting:u,loading:e,connectedAccount:a}=y({isEditing:!0,connectedAccountId:c}),{control:S}=o;return e&&!a?n(x,{children:n(v,{})}):!a&&!e?n(C,{}):n(_,{...o,children:n(b,{title:t._({id:"AyPkS4"}),links:[{children:t._({id:"pmUArF"}),href:s(i.Workspace)},{children:t._({id:"bPwFdf"}),href:s(i.Accounts)},{children:t._({id:"AyPkS4"})}],actionButton:n(F,{isSaveDisabled:!l,isCancelDisabled:u,isLoading:e,onCancel:()=>r(i.Accounts),onSave:m(g=>d(g))}),children:n(P,{children:n(k,{control:S,isEditing:!0})})})})};export{T as SettingsAccountsEditImapSmtpCaldavConnection};

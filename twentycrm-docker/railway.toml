@@ -1,0 +1,20 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/healthz"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[[services]]
+name = "twentycrm"
+
+[services.variables]
+NODE_PORT = "3000"
+SERVER_URL = "https://immigrantrus.org/staff-portal"
+FRONTEND_URL = "https://immigrantrus.org/staff-portal"
+STORAGE_TYPE = "local"
+DISABLE_DB_MIGRATIONS = "false"
+DISABLE_CRON_JOBS_REGISTRATION = "false"

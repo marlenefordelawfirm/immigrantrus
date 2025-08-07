@@ -1,1 +1,0 @@
-import{aH as r,aI as n,aJ as a,aK as o}from"./index.Dg3lKJeg.js";const d=()=>{const{objectMetadataItems:t}=r(),e=n({objectMetadataItem:t.find(i=>i.nameSingular===a.View)}),{findManyRecordsLazy:s}=o({objectNameSingular:a.View,filter:e.variables.filter,recordGqlFields:e.fields,fetchPolicy:"network-only"});return{refreshCachedViews:s}},l=63;export{l as D,d as u};

@@ -1,1 +1,0 @@
-import{al as t,i as l}from"./index.Dg3lKJeg.js";import{s as o,a as i}from"./SettingsRolesQueryEffect.DrlzoG9A.js";const d=t({key:"settingsAllRolesSelector",get:({get:e})=>e(o).map(s=>e(i(s))).filter(l)});export{d as s};

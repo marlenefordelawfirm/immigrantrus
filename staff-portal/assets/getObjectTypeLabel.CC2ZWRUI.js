@@ -1,1 +1,0 @@
-import{j as o,aL as t}from"./index.Dg3lKJeg.js";const r=({className:e,objectTypeLabel:l})=>o(t,{className:e,color:l.labelColor,text:l.labelText,weight:"medium"}),s=e=>e.isCustom?{labelText:"Custom",labelColor:"orange"}:e.isRemote?{labelText:"Remote",labelColor:"green"}:{labelText:"Standard",labelColor:"blue"};export{r as S,s as g};
