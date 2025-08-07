@@ -15,7 +15,20 @@ import {
 } from 'react-router-dom';
 import { Authorize } from '~/pages/auth/Authorize';
 import { PasswordReset } from '~/pages/auth/PasswordReset';
-import { SignInUp } from '~/pages/auth/SignInUp';
+// import { SignInUp } from '~/pages/auth/SignInUp'; // Disabled for Clerk integration
+
+// Temporary bypass component for Clerk integration
+const AuthBypass = () => (
+  <div style={{ padding: '20px', textAlign: 'center' }}>
+    <h2>Authentication Bypassed</h2>
+    <p>Clerk integration in progress. Authentication temporarily disabled.</p>
+    <p>Redirecting to main application...</p>
+    <script>
+      {`setTimeout(() => { window.location.href = '/'; }, 2000);`}
+    </script>
+  </div>
+);
+
 import { NotFound } from '~/pages/not-found/NotFound';
 import { RecordIndexPage } from '~/pages/object-record/RecordIndexPage';
 import { RecordShowPage } from '~/pages/object-record/RecordShowPage';
@@ -43,8 +56,8 @@ export const useCreateAppRouter = (
         <Route element={<DefaultLayout />}>
           <Route path={AppPath.Verify} element={<VerifyLoginTokenEffect />} />
           <Route path={AppPath.VerifyEmail} element={<VerifyEmailEffect />} />
-          <Route path={AppPath.SignInUp} element={<SignInUp />} />
-          <Route path={AppPath.Invite} element={<SignInUp />} />
+          <Route path={AppPath.SignInUp} element={<AuthBypass />} />
+          <Route path={AppPath.Invite} element={<AuthBypass />} />
           <Route path={AppPath.ResetPassword} element={<PasswordReset />} />
           <Route path={AppPath.CreateWorkspace} element={<CreateWorkspace />} />
           <Route path={AppPath.CreateProfile} element={<CreateProfile />} />

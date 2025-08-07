@@ -64,20 +64,9 @@ export const useApolloFactory = (options: Partial<Options<any>> = {}) => {
         setTokenPair(tokenPair);
       },
       onUnauthenticatedError: () => {
-        setTokenPair(null);
-        setCurrentUser(null);
-        setCurrentWorkspaceMember(null);
-        setCurrentWorkspace(null);
-        setCurrentUserWorkspace(null);
-        if (
-          !isMatchingLocation(location, AppPath.Verify) &&
-          !isMatchingLocation(location, AppPath.SignInUp) &&
-          !isMatchingLocation(location, AppPath.Invite) &&
-          !isMatchingLocation(location, AppPath.ResetPassword)
-        ) {
-          setPreviousUrl(`${location.pathname}${location.search}`);
-          navigate(AppPath.SignInUp);
-        }
+        // Authentication disabled for Clerk integration
+        // TODO: Replace with Clerk authentication handling
+        console.log('Authentication error - Clerk integration pending');
       },
       onAppVersionMismatch: (message) => {
         enqueueErrorSnackBar({
