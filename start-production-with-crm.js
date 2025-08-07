@@ -140,22 +140,32 @@ app.use('/api/graphql', async (req, res) => {
   }
 });
 
-// Health check endpoint
+// Health check endpoint - responds immediately for Railway health checks
 app.get('/api/health', (req, res) => {
-  res.json({
+  const healthStatus = {
     status: 'healthy',
     services: {
       website: 'running',
-      twentycrm: twentyCrmProcess ? 'running' : 'stopped',
+      twentycrm: twentyCrmProcess ? 'running' : 'starting',
       database: process.env.DATABASE_URL ? 'configured' : 'not configured',
       redis: process.env.REDIS_URL ? 'configured' : 'not configured'
     },
-    timestamp: new Date().toISOString()
-  });
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  };
+  
+  // Always respond with 200 OK for Railway health checks
+  // Even if TwentyCRM is still starting, the main server is healthy
+  res.status(200).json(healthStatus);
 });
 
 // Serve staff portal (TwentyCRM frontend)
 app.use('/staff-portal', express.static(path.join(__dirname, 'public/staff-portal')));
+
+// Root path handler for quick health checks
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 
 // Serve main website
 app.get('*', (req, res) => {
