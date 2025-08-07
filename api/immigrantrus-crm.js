@@ -1,7 +1,7 @@
 // ImmigrantsRUs CRM API - Vercel Serverless Functions
 // This provides the core CRM functionality as specified in the PRD
 
-import { createClient } from '@supabase/supabase-js';
+const { createClient } = require('@supabase/supabase-js');
 
 // Initialize Supabase client
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -48,7 +48,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 };
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Handle CORS preflight
   if (req.method === 'OPTIONS') {
     return res.status(200).json({});

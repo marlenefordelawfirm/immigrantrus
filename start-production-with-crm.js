@@ -11,15 +11,11 @@
  * Designed for Railway deployment with PostgreSQL and Redis
  */
 
-import express from 'express';
-import { spawn } from 'child_process';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
-import cors from 'cors';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const express = require('express');
+const { spawn } = require('child_process');
+const path = require('path');
+const fs = require('fs');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -110,8 +106,8 @@ async function startTwentyCRM() {
 // API Routes - Import from existing API
 app.use('/api/immigrantrus-crm', async (req, res, next) => {
   try {
-    // Import the existing CRM API handler
-    const { default: crmHandler } = await import('./api/immigrantrus-crm.js');
+    // Use require for CommonJS compatibility
+    const crmHandler = require('./api/immigrantrus-crm.js');
     return crmHandler(req, res);
   } catch (error) {
     console.error('CRM API Error:', error);
@@ -122,7 +118,7 @@ app.use('/api/immigrantrus-crm', async (req, res, next) => {
 // Proxy requests to TwentyCRM backend
 app.use('/api/graphql', async (req, res) => {
   try {
-    const fetch = (await import('node-fetch')).default;
+    const fetch = require('node-fetch');
     const response = await fetch('http://localhost:3001/graphql', {
       method: req.method,
       headers: {
