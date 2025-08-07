@@ -111,7 +111,7 @@ app.use('/api/immigrantrus-crm', async (req, res, next) => {
     return crmHandler(req, res);
   } catch (error) {
     console.error('CRM API Error:', error);
-    res.status(500).json({ error: 'CRM API unavailable' });
+    res.status(500).json({ error: 'CRM API unavailable', message: error.message });
   }
 });
 

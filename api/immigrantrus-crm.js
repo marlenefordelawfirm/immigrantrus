@@ -59,8 +59,25 @@ module.exports = async function handler(req, res) {
     res.setHeader(key, value);
   });
 
-  const { pathname } = new URL(req.url, `http://${req.headers.host}`);
-  const path = pathname.replace('/api/immigrantrus-crm', '');
+  // Safe URL parsing to avoid path-to-regexp errors
+  let path = '';
+  try {
+    // Handle both direct API calls and proxied calls
+    if (req.originalUrl) {
+      path = req.originalUrl.replace('/api/immigrantrus-crm', '');
+    } else if (req.url) {
+      path = req.url.replace('/api/immigrantrus-crm', '');
+    }
+    
+    // Clean up the path
+    path = path.split('?')[0]; // Remove query parameters
+    if (!path.startsWith('/')) {
+      path = '/' + path;
+    }
+  } catch (error) {
+    console.error('URL parsing error:', error);
+    path = '/health'; // Default to health check
+  }
 
   try {
     // Route handling
