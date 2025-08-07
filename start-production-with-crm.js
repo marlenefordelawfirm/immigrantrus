@@ -26,6 +26,8 @@ app.use(express.json());
 app.use(express.static('dist'));
 
 console.log('🚀 Starting ImmigrantsRUs Production Server with TwentyCRM Integration');
+console.log('📍 Node.js version:', process.version);
+console.log('📍 Environment:', process.env.NODE_ENV || 'development');
 
 // Environment validation
 const requiredEnvVars = [

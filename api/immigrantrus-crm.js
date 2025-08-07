@@ -69,11 +69,18 @@ module.exports = async function handler(req, res) {
       path = req.url.replace('/api/immigrantrus-crm', '');
     }
     
-    // Clean up the path
+    // Clean up the path - remove query parameters and ensure leading slash
     path = path.split('?')[0]; // Remove query parameters
+    path = path.split('#')[0]; // Remove hash fragments
     if (!path.startsWith('/')) {
       path = '/' + path;
     }
+    
+    // Sanitize path to prevent issues
+    path = path.replace(/\/+/g, '/'); // Replace multiple slashes with single slash
+    
+    console.log(`[API] Processing request: ${req.method} ${path}`);
+    
   } catch (error) {
     console.error('URL parsing error:', error);
     path = '/health'; // Default to health check
