@@ -29,12 +29,8 @@
       "destination": "/api/$1"
     },
     {
-      "source": "/welcome",
-      "destination": "/staff-portal/index.html"
-    },
-    {
-      "source": "/staff-portal",
-      "destination": "/staff-portal/index.html"
+      "source": "/staff-portal/:path*",
+      "destination": "http://138.197.126.52/:path*"
     },
     {
       "source": "/((?!staff-portal|api|welcome).*)",
