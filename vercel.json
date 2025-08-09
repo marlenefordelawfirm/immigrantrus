@@ -29,11 +29,15 @@
       "destination": "/api/$1"
     },
     {
-      "source": "/welcome",
-      "destination": "/staff-portal/index.html"
+      "source": "/staff-portal/(.*)",
+      "destination": "https://138.197.126.52:3000/$1"
     },
     {
       "source": "/staff-portal",
+      "destination": "https://138.197.126.52:3000/"
+    },
+    {
+      "source": "/welcome",
       "destination": "/staff-portal/index.html"
     },
     {
